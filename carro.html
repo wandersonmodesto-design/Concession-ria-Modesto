@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gerenciar Clientes</title>
+    <link href="cadastros.css" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <div id="logo">
+            <img src="imagens/logocarro.png">
+        </div>
+        <div id="texto">
+            <h1>Concessionária <span>Modesto</span></h1>
+            <label>A mais modesta da região.</label>
+        </div>
+        <div id="inicio">
+            <a href="index.html">
+                <img src="imagens/botao-home.png">
+                <label>Início</label>
+            </a>
+        </div>
+    </header>
+    <main>
+        <form action="carro.php" method="post">
+            <h2>Gerenciar Ccarros</h2>
+
+            <div class="campo">
+                <label for="idcarro">ID do Carro</label>
+                <input type="number" id="idcarro" name="idcarro"value="<?php echo $idcarro; ?>">
+            </div>
+
+            <div class="campo">
+                <label for="marca">Marca</label>
+                <input type="text" id="marca" name="marca"value="<?php echo $marca; ?>">
+            </div>
+
+            <div class="campo">
+                <label for="modelo">Modelo</label>
+                <input type="text" id="modelo" name="modelo"value="<?php echo $modelo; ?>">
+            </div>
+
+            <div class="campo">
+                <label for="anofabricacao">Ano de Fabricação</label>
+                <input type="datetime" id="anofabricacao" name="anofabricacao"value="<?php echo $anofabricacao; ?>">
+            </div>
+
+            <div class="campo">
+                <label for="cor">Cor</label>
+                <input type="text" id="cor" name="cor"value="<?php echo $cor; ?>">
+            </div>
+
+            <div class="campo">
+                <label for="placa">Placa</label>
+                <input type="text" id="placa" name="placa"value="<?php echo $placa; ?>">
+            </div>
+
+            <div class="campo">
+                <label for="km">Quilometragem</label>
+                <input type="text" id="km" name="km"value="<?php echo $km; ?>">
+            </div>
+
+            <div class="campo">
+                <label for="preco">Preço</label>
+                <input type="number" id="preco" name="preco"value="<?php echo $preco; ?>">
+            </div>
+
+            <div class="campo">
+                <label for="situacao">Situação do Veículo</label>
+                <input type="text" id="situacao" name="situacao"value="<?php echo $situacao; ?>">
+            </div>
+
+            <input type="submit" name="submit" value="✏️Cadastrar">
+            <button type="submit" name="consultar">📄Consultar</button>
+            <button type="submit" name="alterar">📝Alterar</button>
+            <button type="submit" name="excluir">❌Excluir</button>
+            <button type="reset" name="limpar">🧹Limpar</button>
+            <button type="submit" name="voltar">⬅️Voltar</button>
+            <button type="submit" name="avancar">➡️Avançar</button>
+            
+        </form>
+    </main>
+    <footer>
+        <label>&copy;2026 Todos os direitos reservados.</label>
+    </footer>
+</body>
+</html>

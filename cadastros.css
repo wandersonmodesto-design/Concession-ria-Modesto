@@ -1,0 +1,469 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap');
+
+:root {
+    --vermelho: #e63946;
+    --vermelho-escuro: #bd2634;
+    --preto: #101114;
+    --cinza-escuro: #202127;
+    --cinza: #777b85;
+    --branco: #ffffff;
+    --fundo: #f3f4f6;
+    --borda: #e2e4e9;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    font-family: 'Montserrat', sans-serif;
+    background: radial-gradient(ellipse at top right, rgba(230, 57, 70, 0.08), transparent 40%), var(--fundo);
+    color: var(--preto);
+    overflow-x: hidden;
+}
+
+header {
+    width: 100%;
+    min-height: 110px;
+    padding: 18px clamp(20px, 5%, 75px);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+    background: linear-gradient(120deg, #0b0b0d, #25262c);
+    border-bottom: 3px solid var(--vermelho);
+    box-shadow: 0 5px 22px rgba(0, 0, 0, 0.2);
+}
+
+#logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+#logo img {
+    display: block;
+    width: 78px;
+    height: 72px;
+    object-fit: contain;
+    filter: drop-shadow(0 3px 8px rgba(230, 57, 70, 0.18));
+    transition: transform 0.3s ease;
+}
+
+#logo img:hover {
+    transform: scale(1.08);
+}
+
+#texto {
+    flex: 1;
+    min-width: 0;
+}
+
+#texto h1 {
+    color: var(--branco);
+    font-size: clamp(20px, 2.5vw, 32px);
+    font-weight: 900;
+    letter-spacing: -1px;
+    text-transform: uppercase;
+    line-height: 1.3;
+}
+
+#texto h1 span {
+    color: var(--vermelho);
+}
+
+#texto label {
+    display: block;
+    margin-top: 5px;
+    color: #bfc1c9;
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+}
+
+#inicio {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+#inicio a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 9px;
+    padding: 12px 18px;
+    color: var(--branco);
+    text-decoration: none;
+    white-space: nowrap;
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.16);
+    border-radius: 10px;
+    transition: background 0.3s ease, border-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+#inicio a:hover {
+    background: var(--vermelho);
+    border-color: var(--vermelho);
+    transform: translateY(-3px);
+    box-shadow: 0 7px 20px rgba(230, 57, 70, 0.25);
+}
+
+#inicio img {
+    width: 22px;
+    height: 22px;
+    object-fit: contain;
+}
+
+#inicio label {
+    font-size: 13px;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+main {
+    flex: 1;
+    width: 100%;
+    padding: 45px 20px 55px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+form {
+    position: relative;
+    width: 100%;
+    max-width: 760px;
+    padding: 38px 42px;
+    background: var(--branco);
+    border: 1px solid #e8e9ed;
+    border-radius: 20px;
+    box-shadow: 0 15px 45px rgba(16, 17, 20, 0.09);
+    animation: aparecer 0.6s ease both;
+}
+
+form::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 5px;
+    background: linear-gradient(90deg, var(--vermelho-escuro), #ff6873);
+    border-radius: 20px 20px 0 0;
+}
+
+form h2 {
+    position: relative;
+    margin-bottom: 30px;
+    padding-bottom: 18px;
+    color: var(--preto);
+    font-size: 27px;
+    font-weight: 800;
+    letter-spacing: -0.5px;
+    text-align: center;
+}
+
+form h2::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 65px;
+    height: 4px;
+    background: var(--vermelho);
+    border-radius: 10px;
+    transform: translateX(-50%);
+}
+
+.campo {
+    display: flex;
+    flex-direction: column;
+    gap: 9px;
+    margin-bottom: 19px;
+}
+
+.campo label {
+    color: #303139;
+    font-size: 13px;
+    font-weight: 700;
+}
+
+.campo input {
+    width: 100%;
+    height: 49px;
+    padding: 0 15px;
+    outline: none;
+    color: #24252b;
+    background: #f8f9fb;
+    border: 1px solid var(--borda);
+    border-radius: 10px;
+    font-family: inherit;
+    font-size: 14px;
+    transition: border-color 0.25s ease, box-shadow 0.25s ease, background 0.25s ease;
+}
+
+.campo input::placeholder {
+    color: #a4a6af;
+}
+
+.campo input:hover {
+    border-color: #c5c7ce;
+}
+
+.campo input:focus {
+    background: var(--branco);
+    border-color: var(--vermelho);
+    box-shadow: 0 0 0 4px rgba(230, 57, 70, 0.1);
+}
+
+form > input[type="submit"],
+form > button {
+    min-height: 45px;
+    padding: 12px 18px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    margin: 5px 3px 0 0;
+    border: 1px solid transparent;
+    border-radius: 9px;
+    font-family: inherit;
+    font-size: 12px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+}
+
+form > input[type="submit"] {
+    color: var(--branco);
+    background: var(--vermelho);
+    border-color: var(--vermelho);
+}
+
+form > input[type="submit"]:hover {
+    background: var(--vermelho-escuro);
+    box-shadow: 0 5px 14px rgba(230, 57, 70, 0.25);
+    transform: translateY(-2px);
+}
+
+form > button {
+    color: #35363d;
+    background: #f2f3f6;
+    border-color: #e4e5e9;
+}
+
+form > button:hover {
+    color: var(--branco);
+    background: var(--cinza-escuro);
+    border-color: var(--cinza-escuro);
+    box-shadow: 0 5px 12px rgba(0, 0, 0, 0.12);
+    transform: translateY(-2px);
+}
+
+form > button:active,
+form > input[type="submit"]:active {
+    transform: scale(0.97);
+}
+
+footer {
+    width: 100%;
+    min-height: 70px;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--preto);
+    border-top: 3px solid var(--vermelho);
+    text-align: center;
+}
+
+footer label {
+    color: #a7a9b2;
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 1.8;
+    letter-spacing: 0.4px;
+}
+
+@keyframes aparecer {
+    from {
+        opacity: 0;
+        transform: translateY(18px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@media (max-width: 700px) {
+    header {
+        padding: 18px 4%;
+        gap: 14px;
+    }
+
+    #logo img {
+        width: 60px;
+        height: 60px;
+    }
+
+    #texto h1 {
+        font-size: 21px;
+    }
+
+    #texto label {
+        font-size: 9px;
+        letter-spacing: 1px;
+    }
+
+    #inicio a {
+        padding: 10px 12px;
+    }
+
+    form {
+        max-width: 600px;
+        padding: 32px 26px;
+    }
+}
+
+@media (max-width: 480px) {
+    header {
+        padding: 16px 4%;
+        gap: 10px;
+    }
+
+    #logo img {
+        width: 48px;
+        height: 48px;
+    }
+
+    #texto h1 {
+        font-size: 16px;
+        letter-spacing: -0.4px;
+    }
+
+    #texto label {
+        font-size: 8px;
+        letter-spacing: 0.4px;
+    }
+
+    #inicio a {
+        padding: 9px 10px;
+        gap: 5px;
+    }
+
+    #inicio img {
+        width: 17px;
+        height: 17px;
+    }
+
+    #inicio label {
+        font-size: 11px;
+    }
+
+    main {
+        padding: 30px 13px;
+    }
+
+    form {
+        padding: 29px 19px;
+        border-radius: 15px;
+    }
+
+    form h2 {
+        font-size: 23px;
+        margin-bottom: 25px;
+    }
+
+    .campo {
+        margin-bottom: 16px;
+        gap: 8px;
+    }
+
+    .campo label {
+        font-size: 12px;
+    }
+
+    .campo input {
+        height: 46px;
+        font-size: 13px;
+    }
+
+    form > input[type="submit"],
+    form > button {
+        width: 100%;
+        min-height: 44px;
+        margin: 5px 0;
+        font-size: 12px;
+    }
+
+    footer {
+        min-height: 60px;
+    }
+
+    footer label {
+        font-size: 10px;
+    }
+}
+
+@media (max-width: 360px) {
+    header {
+        gap: 8px;
+    }
+
+    #logo img {
+        width: 40px;
+        height: 40px;
+    }
+
+    #texto h1 {
+        font-size: 14px;
+    }
+
+    #texto label {
+        font-size: 7px;
+        letter-spacing: 0.2px;
+    }
+
+    #inicio a {
+        padding: 8px;
+        gap: 4px;
+    }
+
+    #inicio img {
+        width: 15px;
+        height: 15px;
+    }
+
+    #inicio label {
+        font-size: 10px;
+    }
+
+    form {
+        padding: 25px 15px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+}

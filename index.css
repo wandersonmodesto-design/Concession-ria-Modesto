@@ -1,0 +1,512 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap');
+
+:root {
+    --vermelho: #e63946;
+    --vermelho-escuro: #b91c2b;
+    --preto: #101114;
+    --cinza-escuro: #191b20;
+    --cinza: #777b85;
+    --branco: #ffffff;
+    --fundo: #f3f4f6;
+    --borda: #e5e5e9;
+    --sombra: 0 8px 25px rgba(16, 17, 20, 0.07);
+    --sombra-hover: 0 18px 35px rgba(16, 17, 20, 0.13);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    background: var(--fundo);
+    color: var(--preto);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    overflow-x: hidden;
+}
+
+header {
+    width: 100%;
+    min-height: 115px;
+    padding: 20px clamp(20px, 5%, 75px);
+    background: linear-gradient(120deg, #0b0b0d, #202127);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 25px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.22);
+    border-bottom: 3px solid var(--vermelho);
+}
+
+#logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+#logo img {
+    display: block;
+    width: 85px;
+    height: 75px;
+    object-fit: contain;
+    filter: drop-shadow(0 3px 8px rgba(230, 57, 70, 0.2));
+    transition: transform 0.3s ease;
+}
+
+#logo img:hover {
+    transform: scale(1.08);
+}
+
+#texto {
+    flex: 1;
+    min-width: 0;
+}
+
+#texto h1 {
+    font-size: clamp(20px, 2.5vw, 34px);
+    font-weight: 900;
+    color: var(--branco);
+    letter-spacing: -1px;
+    text-transform: uppercase;
+    line-height: 1.3;
+    overflow-wrap: break-word;
+}
+
+#texto h1 span {
+    color: var(--vermelho);
+}
+
+#texto label {
+    display: block;
+    margin-top: 6px;
+    color: #bfc1c9;
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+}
+
+#inicio {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    position: relative;
+    z-index: 1;
+}
+
+#inicio a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 9px;
+    padding: 12px 18px;
+    color: var(--branco);
+    text-decoration: none;
+    white-space: nowrap;
+    background: rgba(255, 255, 255, 0.07);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 10px;
+    transition: background 0.3s ease, border-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+#inicio a:hover {
+    background: var(--vermelho);
+    border-color: var(--vermelho);
+    transform: translateY(-3px);
+    box-shadow: 0 6px 18px rgba(230, 57, 70, 0.3);
+}
+
+#inicio img {
+    display: block;
+    width: 22px;
+    height: 22px;
+    object-fit: contain;
+}
+
+#inicio label {
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 700;
+}
+
+main {
+    flex: 1;
+    width: 100%;
+    padding: 65px clamp(20px, 5%, 75px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: radial-gradient(circle at top left, rgba(230, 57, 70, 0.07), transparent 35%), var(--fundo);
+}
+
+#conteudo {
+    width: 100%;
+    max-width: 1150px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+#conteudo h3 {
+    margin-bottom: 15px;
+    color: var(--preto);
+    font-size: clamp(22px, 3vw, 31px);
+    font-weight: 800;
+    line-height: 1.5;
+    letter-spacing: -0.5px;
+}
+
+#conteudo p {
+    margin-bottom: 45px;
+    color: var(--cinza);
+    font-size: 15px;
+    line-height: 1.8;
+}
+
+#botoes {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 25px;
+    align-items: stretch;
+}
+
+.botao {
+    position: relative;
+    background: var(--branco);
+    border: 1px solid var(--borda);
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: var(--sombra);
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+.botao::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: linear-gradient(90deg, var(--vermelho-escuro), #ff6974);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.3s ease;
+}
+
+.botao:hover {
+    transform: translateY(-7px);
+    border-color: rgba(230, 57, 70, 0.4);
+    box-shadow: var(--sombra-hover);
+}
+
+.botao:hover::before {
+    transform: scaleX(1);
+}
+
+.botao a {
+    min-height: 245px;
+    height: 100%;
+    padding: 32px 24px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 22px;
+    color: var(--preto);
+    text-decoration: none;
+}
+
+.logo {
+    width: 90px;
+    height: 90px;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(145deg, #fff0f1, #ffe0e3);
+    border-radius: 22px;
+    transition: background 0.3s ease, transform 0.3s ease;
+}
+
+.logo img {
+    width: 55px;
+    height: 55px;
+    object-fit: contain;
+    transition: filter 0.3s ease;
+}
+
+.botao:hover .logo {
+    background: var(--vermelho);
+    transform: scale(1.06);
+}
+
+.botao:hover .logo img {
+    filter: brightness(0) invert(1);
+}
+
+.info {
+    width: 100%;
+}
+
+.info label {
+    display: block;
+    color: var(--preto);
+    font-size: 15px;
+    font-weight: 700;
+    line-height: 1.7;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.botao:hover .info label {
+    color: var(--vermelho-escuro);
+}
+
+#seta {
+    width: 36px;
+    height: 36px;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--branco);
+    background: var(--preto);
+    border-radius: 50%;
+    font-size: 22px;
+    font-weight: 600;
+    transition: background 0.3s ease, transform 0.3s ease;
+}
+
+.botao:hover #seta {
+    background: var(--vermelho);
+    transform: translateX(4px);
+}
+
+footer {
+    width: 100%;
+    min-height: 75px;
+    padding: 22px clamp(20px, 5%, 75px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--preto);
+    border-top: 3px solid var(--vermelho);
+}
+
+footer label {
+    color: #a6a8b0;
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 1.8;
+    text-align: center;
+    letter-spacing: 0.3px;
+}
+
+@media (max-width: 800px) {
+    header {
+        padding: 20px 4%;
+        gap: 16px;
+    }
+
+    #logo img {
+        width: 65px;
+        height: 65px;
+    }
+
+    #texto h1 {
+        font-size: 21px;
+        letter-spacing: -0.5px;
+    }
+
+    #texto label {
+        font-size: 10px;
+        letter-spacing: 0.8px;
+    }
+
+    #inicio a {
+        padding: 10px 12px;
+        gap: 7px;
+    }
+
+    #inicio img {
+        width: 20px;
+        height: 20px;
+    }
+
+    #inicio label {
+        font-size: 12px;
+    }
+
+    main {
+        padding: 45px 4%;
+    }
+
+    #botoes {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 18px;
+    }
+
+    .botao a {
+        min-height: 220px;
+        padding: 28px 18px;
+    }
+}
+
+@media (max-width: 520px) {
+    header {
+        min-height: auto;
+        padding: 18px 5%;
+        gap: 12px;
+        flex-wrap: wrap;
+    }
+
+    #logo img {
+        width: 52px;
+        height: 52px;
+    }
+
+    #texto {
+        flex: 1;
+        min-width: 0;
+    }
+
+    #texto h1 {
+        font-size: clamp(15px, 4vw, 18px);
+        letter-spacing: -0.4px;
+    }
+
+    #texto label {
+        margin-top: 4px;
+        font-size: 9px;
+        letter-spacing: 0.3px;
+    }
+
+    #inicio {
+        margin-left: auto;
+    }
+
+    #inicio a {
+        padding: 9px;
+        gap: 6px;
+        border-radius: 8px;
+    }
+
+    #inicio img {
+        width: 18px;
+        height: 18px;
+    }
+
+    #inicio label {
+        font-size: 12px;
+    }
+
+    main {
+        padding: 38px 5%;
+    }
+
+    #conteudo h3 {
+        font-size: 22px;
+        line-height: 1.45;
+    }
+
+    #conteudo p {
+        margin-bottom: 28px;
+        font-size: 13px;
+    }
+
+    #botoes {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 16px;
+    }
+
+    .botao a {
+        min-height: 175px;
+        padding: 24px 18px;
+        gap: 15px;
+    }
+
+    .logo {
+        width: 70px;
+        height: 70px;
+        border-radius: 18px;
+    }
+
+    .logo img {
+        width: 43px;
+        height: 43px;
+    }
+
+    .info label {
+        font-size: 14px;
+    }
+
+    #seta {
+        width: 32px;
+        height: 32px;
+        font-size: 20px;
+    }
+
+    footer {
+        min-height: 65px;
+        padding: 18px 5%;
+    }
+
+    footer label {
+        font-size: 10px;
+    }
+}
+
+@media (max-width: 360px) {
+    header {
+        gap: 9px;
+    }
+
+    #logo img {
+        width: 43px;
+        height: 43px;
+    }
+
+    #texto h1 {
+        font-size: 14px;
+    }
+
+    #texto label {
+        font-size: 8px;
+    }
+
+    #inicio a {
+        padding: 8px;
+        gap: 5px;
+    }
+
+    #inicio img {
+        width: 16px;
+        height: 16px;
+    }
+
+    #inicio label {
+        font-size: 11px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+        transition-duration: 0.01ms !important;
+        animation-duration: 0.01ms !important;
+    }
+}
